@@ -1,0 +1,32 @@
+### Register User
+
+POST http://127.0.0.1:8000/api/auth/register/
+Content-Type: application/json
+
+{
+    "username": "johndoe3",
+    "password": "securepassword123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "ddonierov@gmail.com"
+}
+
+### Login User
+
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "johndoe3",
+    "password": "securepassword123"
+}
+
+### Refresh Token User
+
+POST http://localhost:8000/api/auth/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEzNjA0OSwiaWF0IjoxNzY2MDQ5NjQ5LCJqdGkiOiJiMTgyZDA3MGFlNWM0MmY5YjlmN2M4YTlkN2NjYzI1ZiIsInVzZXJfaWQiOiI0In0.e2Nq9WecgWy-Kqs8pUNTfXyb3C1XjJxQq-7CNtDbfXc"
+}
+

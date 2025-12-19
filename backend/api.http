@@ -27,6 +27,22 @@ POST http://localhost:8000/api/auth/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEzNjA0OSwiaWF0IjoxNzY2MDQ5NjQ5LCJqdGkiOiJiMTgyZDA3MGFlNWM0MmY5YjlmN2M4YTlkN2NjYzI1ZiIsInVzZXJfaWQiOiI0In0.e2Nq9WecgWy-Kqs8pUNTfXyb3C1XjJxQq-7CNtDbfXc"
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Njc2NTAxMiwiaWF0IjoxNzY2MTYwMjEyLCJqdGkiOiIzZTg2OGZkMDAxOTc0ZjNiODk5ZTY1YzhlMjg2MzJkZSIsInVzZXJfaWQiOiIyIn0.aqGmaaA4ooPNvAc8SXBOGUvxTVbs1gkHhmRi6A-4ugs"
 }
 
+
+### Get all projects 
+
+GET http://localhost:8000/api/project/all
+Content-Type: application/json
+
+### Create project
+POST http://localhost:8000/api/project/all/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2MjQ2NjEyLCJpYXQiOjE3NjYxNjAyMTIsImp0aSI6IjA0M2RlMWZhYzQzYzRkMGRhNTJhOGE0NzhjMGMyM2I3IiwidXNlcl9pZCI6IjIifQ.2_0y9-wpdpQssAgujv1Wfi0WKH1PPaxtT5LhblPbFos
+
+{
+    "name": "Test",
+    "owner": 1,
+    "members": []
+}

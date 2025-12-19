@@ -2,6 +2,11 @@ from .models import User
 from rest_framework import serializers
 from rest_framework import permissions
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = "__all__"
+        model = User
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 

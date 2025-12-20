@@ -1,8 +1,9 @@
-from .models import Project
-from .serializers import ProjectSerializer
+from .models import Project, Todo
+from .serializers import ProjectSerializer, TodoSerializer
 from .permissions import IsOwnerProject
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
+
 
 class CreateAndListProjectAPIView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
@@ -28,6 +29,14 @@ class RetrieveDeleteAndPutProjectAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
 
 
-    def perform_update(self, serializer):
-        serializer.validation_name(serializer.data.get('name'))
-        return super().perform_update(serializer) 
+    # def perform_update(self, serializer):
+    #     serializer.validation_name(serializer.data.get('name'))
+    #     return super().perform_update(serializer) 
+    
+
+
+class CreateAndListTodosAPIView(generics.ListCreateAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+    permission_classes = [IsOwnerProject, IsAdminUser]
+    lookup_field = "id"

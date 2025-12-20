@@ -18,9 +18,9 @@ class Todo(models.Model):
         CANCELLED = "CANCELLED", "Cancelled"
     
     name = models.CharField(max_length=255, unique=True)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_obj")
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="todos")
     status = models.CharField(
-        max_length=10,
+        max_length=15,
         choices=StatusChoices.choices,
         default=StatusChoices.PENDING
     )

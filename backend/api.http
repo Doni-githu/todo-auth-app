@@ -33,8 +33,10 @@ Content-Type: application/json
 
 ### Get all projects 
 
-GET http://localhost:8000/api/project/all
+GET http://localhost:8000/api/project/all/
 Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2MzAyOTMzLCJpYXQiOjE3NjYyMTY1MzMsImp0aSI6ImRhNGJkYmU3YjUyNjQwMGViNmU1ZWRmMDk4NDA0NTJjIiwidXNlcl9pZCI6IjEifQ.sRKYCUtXQy13FOdiVIndlYtUW1sMQ_P0gqP-L70Zx9k
+    
 
 ### Create project
 POST http://localhost:8000/api/project/all/
@@ -49,17 +51,34 @@ Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYW
 
 
 ###
-PUT http://localhost:8000/api/project/1/
+PUT http://localhost:8000/api/project/3/
 Content-Type: application/json
 Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5MzI1LCJpYXQiOjE3NjYyMTI5MjUsImp0aSI6Ijg3MTkzN2QzMmI4MjQxNGRiZTk5Nzc3YjUxMjAxZDc3IiwidXNlcl9pZCI6IjEifQ.uIT4XsxRTFiBm_jSUmw8-C9xbuapahY5mSLOftKz7cE
 
 {
-    "name": "Test updated21123",
+    "name": "Test updated2112123321312313",
     "owner": 2,
-    "members": [2]
+    "members": [1]
 }
 
 ### Delete project
 DELETE http://localhost:8000/api/project/2/
 Content-Type: application/json
 Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
+
+
+### Get all todos
+GET http://localhost:8000/api/project/1/todos/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
+
+
+### Create todo
+POST http://localhost:8000/api/project/1/todos/   
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
+
+{
+    "name": "New Todo Item",
+    "project": 1,
+}

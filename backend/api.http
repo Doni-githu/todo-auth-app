@@ -79,6 +79,28 @@ Content-Type: application/json
 Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
 
 {
-    "name": "New Todo Item",
+    "name": "New Todo Item for 1st Project12",
     "project": 1,
+    "owner": 1
 }
+
+### Update todo
+PUT http://localhost:8000/api/project/1/todos/2/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
+
+{
+    "name": "10 time push-ups",
+    "project": 1,
+    "owner": 1,
+    "status":"CONFIRMED"
+}
+### Get todo detail
+GET http://localhost:8000/api/project/1/todos/2/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4
+
+### Delete todo
+DELETE http://localhost:8000/api/project/1/todos/2/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2MzA5Njc1LCJpYXQiOjE3NjYyMjMyNzUsImp0aSI6ImNmNDcxNjM5NmFkOTRkMjdiMDYyZTFiOTY2NjU2M2JiIiwidXNlcl9pZCI6IjEifQ.MohmzcIAcFqZ24gKRrKLu1DZ0zEOOx3CuITugMXOZro

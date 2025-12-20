@@ -8,17 +8,16 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('name', 'owner', 'members', 'owner_project', 'members')
-
+        fields = ('name', 'id','owner', 'members', 'owner_project', 'members')
+    
     def validation_name(self, value):
         qs = Project.objects.filter(name__iexact=value)
 
         if self.instance:
             qs = qs.exclude(id=self.instance.id)
-
         if qs.exists():
             raise serializers.ValidationError(
-                "Project with this name already exists."
+                {"name": ["Project with this name already exists."]}
             )
         return value
 

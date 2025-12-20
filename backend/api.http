@@ -17,8 +17,8 @@ POST http://127.0.0.1:8000/api/auth/login/
 Content-Type: application/json
 
 {
-    "username": "johndoe3",
-    "password": "securepassword123"
+    "username": "admin",
+    "password": "admin"
 }
 
 ### Refresh Token User
@@ -27,7 +27,7 @@ POST http://localhost:8000/api/auth/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Njc2NTAxMiwiaWF0IjoxNzY2MTYwMjEyLCJqdGkiOiIzZTg2OGZkMDAxOTc0ZjNiODk5ZTY1YzhlMjg2MzJkZSIsInVzZXJfaWQiOiIyIn0.aqGmaaA4ooPNvAc8SXBOGUvxTVbs1gkHhmRi6A-4ugs"
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjgxNzcyNSwiaWF0IjoxNzY2MjEyOTI1LCJqdGkiOiI0ZTNmYTU2MjMzNjQ0YjUxYmM0ZTViNGI1OGEyNTJhYSIsInVzZXJfaWQiOiIxIn0.3DemqT518L21hQgyXMgrBhpYsAR60EdhPPr3UeFDnQ0"
 }
 
 
@@ -39,10 +39,27 @@ Content-Type: application/json
 ### Create project
 POST http://localhost:8000/api/project/all/
 Content-Type: application/json
-Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2MjQ2NjEyLCJpYXQiOjE3NjYxNjAyMTIsImp0aSI6IjA0M2RlMWZhYzQzYzRkMGRhNTJhOGE0NzhjMGMyM2I3IiwidXNlcl9pZCI6IjIifQ.2_0y9-wpdpQssAgujv1Wfi0WKH1PPaxtT5LhblPbFos
-
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjg0ODg1LCJpYXQiOjE3NjYxOTg0ODUsImp0aSI6IjY4NTkzNmFmMjU2YTQ1NzE5NTc4M2JlZDQ2OWQwZGUwIiwidXNlcl9pZCI6IjIifQ.9J94jIBQrrqb9Mts847-jUfXIMTVE8XYJOfvh_-1PEo
+    
 {
-    "name": "Test",
+    "name": "Test 123",
     "owner": 1,
     "members": []
 }
+
+
+###
+PUT http://localhost:8000/api/project/1/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5MzI1LCJpYXQiOjE3NjYyMTI5MjUsImp0aSI6Ijg3MTkzN2QzMmI4MjQxNGRiZTk5Nzc3YjUxMjAxZDc3IiwidXNlcl9pZCI6IjEifQ.uIT4XsxRTFiBm_jSUmw8-C9xbuapahY5mSLOftKz7cE
+
+{
+    "name": "Test updated21123",
+    "owner": 2,
+    "members": [2]
+}
+
+### Delete project
+DELETE http://localhost:8000/api/project/2/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2Mjk5NDUxLCJpYXQiOjE3NjYyMTMwNTEsImp0aSI6IjVjNzVlNmQ3YjkzYjRhMzI5MWRkZjNhNGUwNmJkYjY4IiwidXNlcl9pZCI6IjEifQ.DTv_Pgw7vBRrYk67odoEmF69OoaEKE54In4ux7xZLx4

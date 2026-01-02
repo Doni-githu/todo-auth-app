@@ -46,6 +46,9 @@ class PostAndListTodosAPIView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.validate_name(serializer.validated_data.get('name'))
         return serializer.save() 
+    
+
+
 class RetrieveDeleteAndPutTodoAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
@@ -63,7 +66,6 @@ class RetrieveDeleteAndPutTodoAPIView(generics.RetrieveUpdateDestroyAPIView):
             return queryset.get(id=todo_id)
         except Todo.DoesNotExist: 
             raise NotFound("Todo not found.")
-    
 
     def perform_update(self, serializer):   
         serializer.validate_name(serializer.validated_data.get('name'))

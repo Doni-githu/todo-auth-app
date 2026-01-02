@@ -24,12 +24,12 @@ class Todo(models.Model):
         choices=StatusChoices.choices,
         default=StatusChoices.PENDING
     )
-    # assigned_to = models.ForeignKey(
-    #     User,
-    #     related_name='tasks',
-    #     on_delete=models.SET_NULL, # If user is deleted, keep task but set assigned_to to null
-    #     null=True,
-    #     blank=True
-    # )
+    assigned_to = models.ForeignKey(
+        User,
+        related_name='tasks',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
     def __str__(self) -> str:
         return f'Todo - {self.name} in project - {self.project.name}'

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     "rest_framework_simplejwt",
+    'drf_spectacular'
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication'
     ],
 
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AuthSchema',
 }
 
 SIMPLE_JWT = {

@@ -5,9 +5,11 @@ from user.serializers import UserSerializer
 
 
 class TodoSerializer(serializers.ModelSerializer):
+    assigned = UserSerializer(read_only=True)
+
     class Meta:
         model = Todo
-        fields = ('id','name', 'project', 'status')
+        fields = ('id','name', 'project', 'status', 'assigned_to', 'assigned')
 
     def validate_name(self, value):
         qs = Todo.objects.filter(name__iexact=value)

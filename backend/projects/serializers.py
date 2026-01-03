@@ -23,11 +23,10 @@ class TodoSerializer(serializers.ModelSerializer):
         return value
 
 class ProjectSerializer(serializers.ModelSerializer):
-    # members = UserSerializer(many=True, read_only=True)
-    # todos = TodoSerializer(many=True, read_only=True)
+    owner_name = serializers.CharField(source="owner.username", read_only=True)
     class Meta:
         model = Project
-        fields = ('name', 'id','owner', 'members', 'todos')
+        fields = ('name', 'id', 'owner_name', 'owner')
     
     def validation_name(self, value):
         qs = Project.objects.filter(name__iexact=value)

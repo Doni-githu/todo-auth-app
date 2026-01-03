@@ -4,7 +4,7 @@ from user.models import User
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="owner_project")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="owner")
     members = models.ManyToManyField(User, related_name="members", blank=True)
 
     def __str__(self):
@@ -24,12 +24,10 @@ class Todo(models.Model):
         choices=StatusChoices.choices,
         default=StatusChoices.PENDING
     )
-    assigned_to = models.ForeignKey(
+    assigned_to = models.ManyToManyField(
         User,
-        related_name='tasks',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
+        related_name='tasks', 
+        blank=True,
     )
     def __str__(self) -> str:
         return f'Todo - {self.name} in project - {self.project.name}'

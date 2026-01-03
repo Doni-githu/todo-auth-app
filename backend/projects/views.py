@@ -18,18 +18,23 @@ class PostAndListProjectAPIView(generics.ListCreateAPIView):
             return Project.objects.prefetch_related('members').all()
         return Project.objects.filter(members__in=[user]).prefetch_related('members')
 
-
     def perform_create(self, serializer):
         serializer.validation_name(serializer.validated_data.get('name'))
         return serializer.save()
     
 
 class RetrieveDeleteAndPutProjectAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Project.objects.all()
+    queryset = Project.objects.prefetch_related('todos')    
     serializer_class = ProjectSerializer
     permission_classes = [IsOwnerProject]
     lookup_field = "id"
 
+
+    def get_permissions(self):
+        self.permission_classes = [IsMemberProject]
+        if self.request.method not in SAFE_METHODS:
+            self.permission_classes = [IsOwnerProject]
+        return super().get_permissions()
 
     def perform_update(self, serializer):
         serializer.validate_name(serializer.data.get('name'))

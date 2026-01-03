@@ -23,8 +23,8 @@ class TodoSerializer(serializers.ModelSerializer):
         return value
 
 class ProjectSerializer(serializers.ModelSerializer):
-    members = UserSerializer(many=True, read_only=True)
-    todos = TodoSerializer(many=True, read_only=True)
+    # members = UserSerializer(many=True, read_only=True)
+    # todos = TodoSerializer(many=True, read_only=True)
     class Meta:
         model = Project
         fields = ('name', 'id','owner', 'members', 'todos')

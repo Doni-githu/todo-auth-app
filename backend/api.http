@@ -4,7 +4,7 @@ POST http://127.0.0.1:8000/api/auth/register/
 Content-Type: application/json
 
 {
-    "username": "johndoe3",
+    "username": "johndoe12313",
     "password": "securepassword123",
     "first_name": "John",
     "last_name": "Doe",

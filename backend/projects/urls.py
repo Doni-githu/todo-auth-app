@@ -1,14 +1,16 @@
 from django.urls import path
 from .views import (
     PostAndListProjectAPIView,
-    RetrieveDeleteAndPutProjectAPIView,
+    DeleteAndPutProjectAPIView,
     PostAndListTodosAPIView,
-    RetrieveDeleteAndPutTodoAPIView
+    RetrieveDeleteAndPutTodoAPIView,
+    RetrieveProjectAPIView
 )
 
 urlpatterns = [
     path("all/", PostAndListProjectAPIView.as_view(), name="project-get-post"),
-    path("<int:id>/", RetrieveDeleteAndPutProjectAPIView.as_view(), name="project-delete-get-put"),
+    path("<int:id>/action/", DeleteAndPutProjectAPIView.as_view(), name="project-delete-get-put"),
+    path("<int:id>/info/", RetrieveProjectAPIView.as_view(), name="project-delete-get-put"),
     path("<int:id>/todos/", PostAndListTodosAPIView.as_view(), name="todo-get-post"),
-    path("<int:id>/todos/<int:pk>/", RetrieveDeleteAndPutTodoAPIView.as_view(), name="todo-get-post"),
+    path("<int:project_id>/todos/<int:pk>/", RetrieveDeleteAndPutTodoAPIView.as_view(), name="todo-get-post"),
 ]

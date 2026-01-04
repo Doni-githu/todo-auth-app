@@ -29,5 +29,9 @@ class Todo(models.Model):
         related_name='tasks', 
         blank=True,
     )
+
+    completed_at = models.DateTimeField(null=True, blank=True)
+
+
     def __str__(self) -> str:
         return f'Todo - {self.name} in project - {self.project.name}'

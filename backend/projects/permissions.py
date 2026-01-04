@@ -2,18 +2,27 @@ from rest_framework import permissions
 
 class IsOwnerProject(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        return obj.owner.id == request.user.id or request.user.is_staff
-
+        if obj.owner == request.user:
+            return True
+        if request.user.is_staff:
+            return True
+        return False
+        
 class IsMemberProject(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        return request.user in obj.members.all() or request.user.id  == obj.owner.id
+        return request.user in obj.members.all()
+    
 class IsMemberTodoProject(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         return request.user in obj.project.members.all()
     
 class IsOwnerTodoProject(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        return obj.project.owner.id == request.project.user.id or request.user.is_staff
+        if obj.project.owner == request.user:
+            return True
+        if request.user.is_staff:
+            return True
+        return False
 
 
 class IsAdminOrReadOnly(permissions.BasePermission):

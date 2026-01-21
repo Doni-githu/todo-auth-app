@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-(^wrqrdg4**u6++1*zi5w(oyxsiz=n@kmu&1(!bb28muvykhdy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,10 +85,10 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',         # Name of the PostgreSQL database
-        'USER': 'postgres',         # PostgreSQL username
-        'PASSWORD': 'doni', # PostgreSQL password
-        'HOST': '127.0.0.1',            # Usually 'localhost' for local setup
+        'NAME': 'neondb',         # Name of the PostgreSQL database
+        'USER': 'neondb_owner',         # PostgreSQL username
+        'PASSWORD': 'npg_tyKl7GgpN3xI', # PostgreSQL password
+        'HOST': 'ep-steep-sound-agsl4ght-pooler.c-2.eu-central-1.aws.neon.tech',            # Usually 'localhost' for local setup
         'PORT': '5432',                 # Default PostgreSQL port
     }
 }

@@ -4,6 +4,9 @@ from .permissions import IsMemberTodoProject, IsOwnerProject, IsMemberProject, I
 from rest_framework import generics, views, status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, SAFE_METHODS
 from rest_framework.response import Response
+
+
+
 class PostAndListProjectAPIView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer

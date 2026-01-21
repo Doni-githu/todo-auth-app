@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+from dotenv import load_dotenv # type: ignore
+import dj_database_url # type: ignore
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,14 +86,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',         # Name of the PostgreSQL database
-        'USER': 'neondb_owner',         # PostgreSQL username
-        'PASSWORD': 'npg_tyKl7GgpN3xI', # PostgreSQL password
-        'HOST': 'ep-steep-sound-agsl4ght-pooler.c-2.eu-central-1.aws.neon.tech',            # Usually 'localhost' for local setup
-        'PORT': '5432',                 # Default PostgreSQL port
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 

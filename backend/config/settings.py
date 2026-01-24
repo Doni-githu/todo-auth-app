@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 from pickle import FALSE
-from dotenv import load_dotenv
-import dj_database_url
+from dotenv import load_dotenv # type: ignore
+import dj_database_url # type: ignore
 
 load_dotenv()
 
@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     'drf_spectacular',
     'drf_spectacular_sidecar',
-    'silk'
+    'silk',
+    'whitenoise',
 ]
 
 MIDDLEWARE = [
